@@ -7,26 +7,30 @@ public class ProjectAddService {
     dao = new ProjectDAO();
   }
   
-  public void projectAdd(RequestDTO dto) {
+  public boolean isTitleExists(String purpose, String title) {
     ProjectVO vo;
-    String purpose = dto.getPurpose();
-    //제목이 dao에 있는지 검사
-    
-    
+    //제목이 DAO에 있는지 검사
     if(purpose.equals("개인")) {
-      vo = dao.pSelectOne(dto.getTitle());
+      vo = dao.pSelectOne(title);
       if(vo != null) {
         System.out.println("같은 제목을 가진 프로젝트가 존재합니다.");
-        return;
+        return false;
       }
     }
     else {
-      vo = dao.bSelectOne(dto.getTitle());
+      vo = dao.bSelectOne(title);
       if(vo != null) {
         System.out.println("같은 제목을 가진 프로젝트가 존재합니다.");
-        return;
+        return false;
       }
     }
+    
+    return true;
+  }
+  
+  public void projectAdd(RequestDTO dto) {
+    ProjectVO vo;
+    String purpose = dto.getPurpose();
     //중요도를 바르게 입력했는지 검사
     if((!dto.getImportancelevel().equals("미정"))&&(!dto.getImportancelevel().equals("상"))&&(!dto.getImportancelevel().equals("중"))&&(!dto.getImportancelevel().equals("하"))) {
       System.out.println("중요도는, 미정, 상, 중, 하, 네 가지만 입력할 수 있습니다.");
