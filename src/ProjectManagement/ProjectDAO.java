@@ -14,10 +14,14 @@ public class ProjectDAO {
   private static Map<String, ProjectVO> business = new HashMap<String, ProjectVO>();
   
   // ProjectVO 타입의 데이터를 받아 DB에 저장하는 함수
-  public void insert(ProjectVO vo) {
+  public void pInsert(ProjectVO vo) {
     personal.put(vo.getTitle(), vo);
+  }
+  public void bInsert(ProjectVO vo) {
     business.put(vo.getTitle(), vo);
   }
+  
+  
   //제목으로 등록된 목록확인 하기
   public ProjectVO pSelectOne(String title) {
     return personal.get(title);
