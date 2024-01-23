@@ -14,8 +14,9 @@ public class ProjectListService {
   public void printPProjectList() {
     Collection<ProjectVO> pList = dao.pSelectList();
     int i = 1;
+    System.out.println("--------개인프로젝트 목록 입니다.---------");
     for (ProjectVO vo : pList) {
-      System.out.println(i + ". 제목:" + vo.getTitle() + ", 중요도:" + vo.getImportancelevel() + ", 시작일:" + vo.getStartDate() + ", 종료일" + vo.getEndDate() + ", 상태" + vo.getImportancelevel());
+      System.out.println(i + ". 제목:" + vo.getTitle() + ", 중요도:" + vo.getImportancelevel() + ", 시작일:" + vo.getStartDate() + ", 종료일" + vo.getEndDate() + ", 상태" + vo.getState());
     }
     
   }
@@ -24,8 +25,9 @@ public class ProjectListService {
   public void printBProjectList() {
     Collection<ProjectVO>  bList = dao.bSelectList();
     int i = 1;
+    System.out.println("--------비지니스프로젝트 목록 입니다.---------");
     for (ProjectVO vo : bList) {
-      System.out.println(i + ". 제목:" + vo.getTitle() + ", 중요도:" + vo.getImportancelevel() + ", 시작일:" + vo.getStartDate() + ", 종료일" + vo.getEndDate() + ", 상태" + vo.getImportancelevel());
+      System.out.println(i + ". 제목:" + vo.getTitle() + ", 중요도:" + vo.getImportancelevel() + ", 시작일:" + vo.getStartDate() + ", 종료일" + vo.getEndDate() + ", 상태" + vo.getState());
     }    
   }
   
