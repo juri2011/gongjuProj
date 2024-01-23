@@ -46,7 +46,7 @@ public class MainController {
         System.out.println("중요도 : 미정 / 하 / 중 / 상");
         System.out.println("시작일 : 프로젝트가 시작되는 날짜입니다.");
         System.out.println("종료일 : 프로젝트가 끝나는 날짜입니다.");
-        System.out.println("상태 : 프로젝트의 제목입니다.");
+        System.out.println("상태 : 프로젝트 진행 상태입니다. (진행 / 보류 / 완료)");
         System.out.println("---------------");
         
         userInput = sc.nextLine();
@@ -62,7 +62,7 @@ public class MainController {
         RequestDTO dto = new RequestDTO(purpose, userInputs[0], userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
         
         ProjectAddService addSrv = new ProjectAddService();
-        System.out.println("성공적으로 입력되었습니다.");
+        addSrv.projectAdd(dto);
         
       }
       //명령어: 2. 삭제
