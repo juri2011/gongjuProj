@@ -59,9 +59,9 @@ public class MainController {
         }
         
         //RequestDTO에서 올바른 데이터 형식으로 작성했는지 검사 필요
-        //RequestDTO dto = new RequestDTO(purpose, userInputs[0], userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
+        RequestDTO dto = new RequestDTO(purpose, userInputs[0], userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
         
-        //ProjectAddServices addSrv = new ProjectAddServices();
+        ProjectAddService addSrv = new ProjectAddService();
         System.out.println("성공적으로 입력되었습니다.");
         
       }
