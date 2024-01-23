@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class MainController {
   public static void help() {
     //도움말 명령어를 출력하는 메소드입니다.
-    System.out.println("명령어를 숫자로 입력해 주세요");
     System.out.println("1. 추가 : 개인/비지니스 제목 중요도 시작일 마감일");
     System.out.println("2. 삭제 ");
     System.out.println("3. 변경");
@@ -19,9 +18,10 @@ public class MainController {
   public static void main(String[] args) {
     //메인 메소드입니다.
     System.out.println("안녕하세요! 프로젝트 관리 매니저입니다.");
+    help();
     Scanner sc = new Scanner(System.in);
     while(true) {
-      help();
+      System.out.println("명령어를 숫자로 입력해 주세요");
       String userInput = sc.nextLine().trim();
       String purpose = "";
       //명령어: 1. 추가
@@ -33,7 +33,8 @@ public class MainController {
         if(userInput.equals("개인")) purpose = "personal";
         else if(userInput.equals("비지니스")) purpose = "business";
         else {
-          System.out.println("잘 못 입력하셨습니다. \'개인\'과 \'비지니스\' 중 하나를 입력하세요.");
+          System.out.println("잘 못 입력하셨습니다.");
+          continue;
         }
         
         //사용자로부터 프로젝트의 내용 입력
@@ -61,6 +62,7 @@ public class MainController {
         //RequestDTO dto = new RequestDTO(purpose, userInputs[0], userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
         
         //ProjectAddServices addSrv = new ProjectAddServices();
+        System.out.println("성공적으로 입력되었습니다.");
         
       }
       //명령어: 2. 삭제
